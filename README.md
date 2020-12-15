@@ -20,5 +20,15 @@ yarn build
 yarn lint
 ```
 
+### chrome拡張機能を実際に動かす
+```
+yarn release
+```
+1. `chorme://extensions`にアクセス
+2. デベロッパーモードをON
+3. パッケージ化されていない拡張機能を読み込むをClick
+4. `dist/`以下を選択
+5. `good kensaku`をクリックして有効化
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

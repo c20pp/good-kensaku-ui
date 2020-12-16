@@ -21,7 +21,6 @@ async function Do() {
     body: JSON.stringify({ urls: urls }) // 本文のデータ型は "Content-Type" ヘッダーと一致する必要があります
   });
   const results = await response.json();
-  console.log(results);
 
   for (let i = 0; i < elements.length; i++) {
     const element = elements[i];
@@ -29,7 +28,6 @@ async function Do() {
     if (!e?.children[0]) {
       continue;
     }
-    console.log(results[i]);
     const badge = parseInt(results[i]) > 0.3 ? "👍" : "👎";
     e.children[0].innerHTML = e.innerHTML + " " + badge;
   }

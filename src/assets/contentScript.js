@@ -17,7 +17,7 @@ async function postFilters(urls) {
   return response.json();
 }
 
-function makeBadge(element, badge) {
+function addBadge(element, badge) {
   const e = element.getElementsByClassName("LC20lb DKV0Md")[0];
   if (!e?.children[0]) {
     return;
@@ -25,14 +25,23 @@ function makeBadge(element, badge) {
   e.children[0].innerHTML = badge + e.innerHTML;
 }
 
+function deleteBadge(element) {
+  const e = element.getElementsByClassName("LC20lb DKV0Md")[0];
+  if (!e?.children[0]) {
+    return;
+  }
+  e.children[0].innerHTML = e.innerHTML.slice(8); // <span>🤔
+}
+
 Promise.all(
   Array.prototype.map.call(elements, async element => {
-    makeBadge(element, "🤔");
+    addBadge(element, "🤔");
     const url = element.querySelector("a").getAttribute("href");
     const res = await postFilters([url]);
 
     const badge = parseInt(res[0]) > 0.3 ? "✅" : "❌";
-    makeBadge(element, badge);
+    deleteBadge(element);
+    addBadge(element, badge);
   })
 );
 

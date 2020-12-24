@@ -44,5 +44,3 @@ Promise.all(
     addBadge(element, badge);
   })
 );
-
-postFilters();

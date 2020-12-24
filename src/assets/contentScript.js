@@ -28,8 +28,8 @@ async function Do() {
     if (!e?.children[0]) {
       continue;
     }
-    const badge = parseInt(results[i]) > 0.3 ? "👍" : "👎";
-    e.children[0].innerHTML = e.innerHTML + " " + badge;
+    const badge = parseInt(results[i]) > 0.3 ? "✅" : "❌";
+    e.children[0].innerHTML = badge + e.innerHTML;
   }
 }
 

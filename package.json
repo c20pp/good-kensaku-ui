@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "release": "vue-cli-service build && cp src/assets/manifest.json dist/ && cp src/assets/contentScript.js dist/",
+    "release": "vue-cli-service build && cp src/assets/manifest.json dist/ && tsc src/assets/contentScript.ts --outDir dist/",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

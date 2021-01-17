@@ -42,7 +42,7 @@ Promise.all(
       res = await postFilters([url]);
     }
 
-    const badge = parseInt(res[0]) > 0.3 ? "✅" : "❌";
+    const badge = parseFloat(res[0]) > 0.3 ? "✅" : "❌";
     deleteBadge(element);
     addBadge(element, badge);
   })

@@ -24,7 +24,7 @@ yarn lint
 ```
 yarn release
 ```
-1. `chorme://extensions`にアクセス
+1. `chrome://extensions`にアクセス
 2. デベロッパーモードをON
 3. パッケージ化されていない拡張機能を読み込むをClick
 4. `dist/`以下を選択

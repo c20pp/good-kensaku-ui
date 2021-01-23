@@ -1,5 +1,6 @@
 <template>
   <hello-world />
+  popup
 </template>
 
 <script lang="ts">

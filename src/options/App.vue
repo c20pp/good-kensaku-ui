@@ -1,5 +1,6 @@
 <template>
   <hello-world />
+  option
 </template>
 
 <script lang="ts">

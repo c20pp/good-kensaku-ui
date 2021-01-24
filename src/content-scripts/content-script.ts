@@ -1,4 +1,4 @@
-const ENDPOINT = "http://127.0.0.1:8080/api/filters";
+const ENDPOINT = "http://127.0.0.1:4010/filters";
 
 const elements = document.getElementsByClassName("yuRUbf");
 
@@ -30,7 +30,7 @@ function deleteBadge(element: Element) {
   if (!e?.children[0]) {
     return;
   }
-  e.children[0].innerHTML = e.innerHTML.slice(8); // <span>🤔
+  e.children[0].innerHTML = e.innerHTML.slice(8); // delete <span>🤔
 }
 
 Promise.all(
@@ -42,7 +42,7 @@ Promise.all(
       res = await postFilters([url]);
     }
 
-    const badge = parseFloat(res[0]) > 0.3 ? "✅" : "❌";
+    const badge = res.results[0] > 0.5 ? "✅" : "❌";
     deleteBadge(element);
     addBadge(element, badge);
   })

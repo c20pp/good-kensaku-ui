@@ -5,23 +5,23 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from "vue";
+import { computed, defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  name: "HelloWorld",
+  name: 'HelloWorld',
   setup() {
-    const defaultText = ref<string>("hello");
+    const defaultText = ref<string>('hello')
 
     const text = computed(() => {
-      return browser.i18n.getMessage("extName");
-    });
+      return browser.i18n.getMessage('extName')
+    })
 
     return {
       defaultText,
-      text
-    };
-  }
-});
+      text,
+    }
+  },
+})
 </script>
 
 <style scoped>

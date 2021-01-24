@@ -59,7 +59,7 @@ export default defineComponent({
 
     const sendFeedBack = async (evaluation: boolean) => {
       submitted.value = true
-      return fetch('http://127.0.0.1:4010/feedback', {
+      return fetch('http://127.0.0.1:8080/api/feedback', {
         method: 'POST',
         mode: 'cors',
         headers: {

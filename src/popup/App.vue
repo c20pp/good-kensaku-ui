@@ -3,20 +3,31 @@
     <hello-world />
 
     <div class="p-grid p-jc-center">
-      <Button
-        label="Bad"
-        icon="pi pi-times"
-        class="p-button-danger p-col-3 p-mr-2"
-        @click="sendBad"
-      ></Button>
-      <Button
-        label="Good"
-        icon="pi pi-check"
-        class="p-button-success p-col-3"
-        @click="sendGood"
-      ></Button>
+      <div class="p-d-flex p-flex-column">
+        <div class="p-d-flex">
+          <Button
+            label="Bad"
+            icon="pi pi-times"
+            class="p-button-danger p-mr-2"
+            :disabled="submitted"
+            @click="sendBad"
+          ></Button>
+          <Button
+            label="Good"
+            icon="pi pi-check"
+            class="p-button-success"
+            :disabled="submitted"
+            @click="sendGood"
+          ></Button>
+        </div>
+        <div v-if="submitted" style="text-align: center">
+          Thank you feedback!
+        </div>
+      </div>
     </div>
-    {{ currentURL }}
+    <div>
+      {{ currentURL }}
+    </div>
   </div>
 </template>
 
@@ -30,6 +41,7 @@ export default defineComponent({
 
   setup() {
     const currentURL = ref('')
+    const submitted = ref(false)
 
     onMounted(async () => {
       const tabs = await browser.tabs.query({
@@ -46,6 +58,7 @@ export default defineComponent({
     })
 
     const sendFeedBack = async (evaluation: boolean) => {
+      submitted.value = true
       return fetch('http://127.0.0.1:4010/feedback', {
         method: 'POST',
         mode: 'cors',
@@ -70,6 +83,7 @@ export default defineComponent({
       sendGood,
       sendBad,
       currentURL,
+      submitted,
     }
   },
 })

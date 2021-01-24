@@ -21,9 +21,6 @@ yarn lint
 ```
 
 ### chrome拡張機能を実際に動かす
-```
-yarn release
-```
 1. `chrome://extensions`にアクセス
 2. デベロッパーモードをON
 3. パッケージ化されていない拡張機能を読み込むをClick

@@ -21,11 +21,9 @@
           @click="sendGood"
         ></Button>
       </div>
-      <div v-if="submitted" style="text-align: center">Thank you feedback!</div>
+      <h3 v-if="submitted" style="text-align: center">Thank you feedback!</h3>
     </div>
-    <div>
-      {{ currentURL }}
-    </div>
+    <div>sendURL: {{ currentURL }}</div>
   </div>
 </template>
 

@@ -2,28 +2,26 @@
   <div>
     <hello-world />
 
-    <div class="p-grid p-jc-center">
-      <div class="p-d-flex p-flex-column">
-        <div class="p-d-flex">
-          <Button
-            label="Bad"
-            icon="pi pi-times"
-            class="p-button-danger p-mr-2"
-            :disabled="submitted"
-            @click="sendBad"
-          ></Button>
-          <Button
-            label="Good"
-            icon="pi pi-check"
-            class="p-button-success"
-            :disabled="submitted"
-            @click="sendGood"
-          ></Button>
-        </div>
-        <div v-if="submitted" style="text-align: center">
-          Thank you feedback!
-        </div>
+    <div class="p-d-flex p-flex-column">
+      <div class="p-d-flex p-jc-center">
+        <Button
+          label="Bad"
+          icon="pi pi-times"
+          class="p-button-danger p-mr-2"
+          style="width: 100px"
+          :disabled="submitted"
+          @click="sendBad"
+        ></Button>
+        <Button
+          label="Good"
+          icon="pi pi-check"
+          class="p-button-success"
+          style="width: 100px"
+          :disabled="submitted"
+          @click="sendGood"
+        ></Button>
       </div>
+      <div v-if="submitted" style="text-align: center">Thank you feedback!</div>
     </div>
     <div>
       {{ currentURL }}

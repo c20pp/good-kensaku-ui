@@ -28,6 +28,7 @@ export default defineComponent({
 
     const save = () => {
       browser.storage.sync.set({ threshold: realThreshold.value })
+      window.close()
     }
 
     const realThreshold = computed(() => {

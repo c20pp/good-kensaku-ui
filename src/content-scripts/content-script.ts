@@ -47,7 +47,6 @@ Promise.all(
     await browser.storage.sync.get(['threshold']).then(result => {
       threshold = result.threshold
     })
-    console.log(threshold)
     const badge = res.results[0] > threshold ? '✅' : '❌'
     deleteBadge(element)
     addBadge(element, badge)

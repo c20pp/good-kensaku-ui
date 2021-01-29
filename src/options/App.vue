@@ -1,18 +1,10 @@
 <template>
   <div>
     <hello-world />
-    <div class="p-d-flex p-flex-column">
-      <h3>threshold is {{ realThreshold }}</h3>
-      <Slider
-        v-model="threshold"
-        :step="1"
-        :min="0"
-        :max="100"
-        class="p-d-flex"
-      />
-      <div>
-        <Button label="save" class="p-d-flex" @click="save"></Button>
-      </div>
+    <h3>threshold is {{ realThreshold }}</h3>
+    <Slider v-model="threshold" :step="1" :min="0" :max="100" />
+    <div class="p-grid p-jc-end p-ai-end vertical-container">
+      <Button label="save" class="p-col-3 p-mr-4" @click="save"></Button>
     </div>
   </div>
 </template>
@@ -55,5 +47,9 @@ export default defineComponent({
 html {
   width: 400px;
   height: 400px;
+}
+.vertical-container {
+  margin: 10px;
+  height: 275px;
 }
 </style>

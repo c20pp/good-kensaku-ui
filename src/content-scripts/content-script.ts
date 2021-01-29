@@ -1,4 +1,4 @@
-const ENDPOINT = 'http://127.0.0.1:4010/filters'
+const ENDPOINT = 'http://127.0.0.1:8080/api/filters'
 
 const elements = document.getElementsByClassName('yuRUbf')
 

@@ -1,4 +1,4 @@
-const ENDPOINT = 'http://127.0.0.1:8080/api/filters'
+const ENDPOINT = 'http://127.0.0.1:4010/filters'
 
 const elements = document.getElementsByClassName('yuRUbf')
 
@@ -42,7 +42,13 @@ Promise.all(
       res = await postFilters([url])
     }
 
-    const badge = res.results[0] > 0.5 ? '✅' : '❌'
+    let threshold = 0.5
+
+    await browser.storage.sync.get(['threshold']).then(result => {
+      threshold = result.threshold
+    })
+    console.log(threshold)
+    const badge = res.results[0] > threshold ? '✅' : '❌'
     deleteBadge(element)
     addBadge(element, badge)
   })

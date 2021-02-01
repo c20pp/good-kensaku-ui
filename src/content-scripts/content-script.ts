@@ -37,16 +37,13 @@ Promise.all(
   Array.prototype.map.call(elements, async (element: Element) => {
     addBadge(element, '🤔')
     const url = element.querySelector('a')?.getAttribute('href')
-    let res
-    if (typeof url === 'string') {
-      res = await postFilters([url])
+    if (!url) {
+      return
     }
+    const res = await postFilters([url])
 
-    let threshold = 0.5
-
-    await browser.storage.sync.get(['threshold']).then(result => {
-      threshold = result.threshold
-    })
+    const threshold =
+      (await browser.storage.sync.get(['threshold']))?.threshold ?? 0.5
     const badge = res.results[0] > threshold ? '✅' : '❌'
     deleteBadge(element)
     addBadge(element, badge)
